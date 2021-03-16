@@ -3,7 +3,7 @@ import Dep from "./dep";
 function defineReactive(data, key, val) {
     Object.defineProperties(data, key, {
         enumerable: true,
-        configuratable: true,
+        configurable: true,
         get: function () {
             return val;
         },
@@ -27,7 +27,7 @@ function defineReactive(data, key, val) {
 
     Object.defineProperties(data, key, {
         enumerable: true,
-        configuratable: true,
+        configurable: true,
         get: function () {
             dep.depend(); //修改
             return val;

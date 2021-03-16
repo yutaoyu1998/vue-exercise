@@ -1,8 +1,7 @@
 /**
  * 管理依赖
  */
-
-export default class Dep {
+class Dep {
     constructor() {
         this.subs = [];
     }

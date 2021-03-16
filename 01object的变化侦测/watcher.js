@@ -4,8 +4,9 @@
 
 */
 
-export default class Watcher {
+class Watcher {
     constructor(vm, expOrFn, cb) {
+
         this.vm = vm;
         // this.getter() 读取解析路径后的值
         this.getter = parsePath(expOrFn);
@@ -31,7 +32,7 @@ export default class Watcher {
 
 // 解析路径
 const bailRE = /[^\w.$]/
-export function parsePath(path) {
+function parsePath(path) {
     if (bailRE.test(path)) return
     const segments = path.split('.');
     return function (obj) {

@@ -4,7 +4,7 @@
     将一个数据内的所有属性都转成getter／setter的形式
 */
 
-export class Observer{
+class Observer{
     constructor(value){
 
         this.value = value;
@@ -30,16 +30,18 @@ function defineReactive(data, key, val) {
 
     let dep = new Dep();
 
-    Object.defineProperties(data, key, {
+    Object.defineProperty(data, key, {
         enumerable: true,
-        configuratable: true,
+        configurable: true,
         get: function () {
+            console.log('收集依赖', data, key);
             dep.depend();
             return val;
         },
         set: function (newVal) {
             if (val === newVal) return
             val = newVal;
+            console.log('触发依赖', data, key);
             dep.notify();
         }
     })
