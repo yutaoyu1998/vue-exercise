@@ -1,5 +1,3 @@
-const { isObject } = require("node:util");
-
 function defineReactive(data, key, val){
 
     let childOb = observe(val); // 修改

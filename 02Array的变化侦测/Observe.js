@@ -34,7 +34,9 @@ class Observer {
         this.value = value;
 
         // dep
-        this.dep = new Dep();   
+        this.dep = new Dep();
+
+        def(value, '__ob__', this)
 
         if (Array.isArray(value)) {
 
@@ -68,4 +70,16 @@ function copyAugment(target, src, keys) {
         const key = keys[i];
         def(target, key, src[key]);
     }
+}
+
+/*
+    工具函数, 新增一个不可枚举的属性
+*/
+function def(obj, key, val, enumerable) {
+    Object.defineProperty(obj, key, {
+        value: val,
+        enumerable: !!enumerable,
+        writable: true,
+        configurable: true
+    })
 }
