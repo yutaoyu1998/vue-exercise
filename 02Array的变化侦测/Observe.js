@@ -33,6 +33,9 @@ class Observer {
 
         this.value = value;
 
+        // dep
+        this.dep = new Dep();   
+
         if (Array.isArray(value)) {
 
             // value.__proto__ = arrayMethods; // 新增
@@ -41,10 +44,10 @@ class Observer {
 
             arguments(value, arrayMethods, arrayKeys);
 
-
         } else {
 
             this.walk(value)
+
         }
     }
 

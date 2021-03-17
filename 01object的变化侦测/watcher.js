@@ -14,6 +14,9 @@ class Watcher {
         this.value = this.get();
     }
 
+    /*
+        通过get取读取值，将自己添加到dep中
+    */
     get() {
         window.target = this; //当前的watcher实例
         let value = this.getter.call(this.vm, this.vm);
