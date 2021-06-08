@@ -1,5 +1,5 @@
 /**
- * 管理依赖
+ * 管理依赖 -- dep
  */
 class Dep {
     constructor() {
